@@ -65,3 +65,53 @@ Explanation:
 - Andy's water jar has 10 units of water, whereas Berry's has 8 units. Since Andy has more water in his can, he serves this guest.
 So, the total number of times they have to refill is 0.
  */
+
+
+ import java.util.*;
+class Test{
+    public static void main (String[] args) {
+        Scanner sc=new Scanner (System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+            
+        }
+        int c1=sc.nextInt();
+        int c2=sc.nextInt();
+        System.out.println(helper(arr,c1,c2));
+    }
+    public static int helper(int[] arr,int c1,int c2){
+        int p1=0;
+        int p2=arr.length-1;
+        int res=0;
+       int  rem1=c1;
+       int rem2=c2;
+      
+        while(p1<=p2){
+            if(p1==p2){
+                int rem=Math.max(rem1,rem2);
+                if(arr[p1]>rem){
+                    res++;
+                }
+                return res;
+            }
+            if(arr[p1]>rem1 ){
+                res++;
+                rem1=c1;
+            }
+            if(arr[p2]>rem2){
+                res++;
+                rem2=c2;
+            }
+            
+                rem1=rem1-arr[p1];
+                rem2=rem2-arr[p2];
+                p1++;
+                p2--;
+            
+        
+        }
+        return res;
+    }
+}
