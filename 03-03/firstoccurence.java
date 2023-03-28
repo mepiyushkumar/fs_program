@@ -22,6 +22,6 @@ class Test{
                 System.exit(0);
             }
             set.add(a);
-        }
+        }   
     }
 }
